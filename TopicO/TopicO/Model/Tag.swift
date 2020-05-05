@@ -9,7 +9,7 @@
 import Foundation
 
 
-class Tag {
+class Tag: Identifiable {
     var id: Int
     var name: String
     var image: String
