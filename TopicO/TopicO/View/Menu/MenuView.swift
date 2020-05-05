@@ -10,6 +10,8 @@ import SwiftUI
 
 struct MenuView: View {
     
+    @State var searchQuery: String = ""
+    
     let height = UIScreen.main.bounds.height
     
     var body: some View {
@@ -19,7 +21,10 @@ struct MenuView: View {
                 .foregroundColor(.white)
                 .multilineTextAlignment(.center)
                 .padding(.top)
-            Spacer().frame(height: height*0.18)
+            Spacer().frame(height: height*0.017)
+            SearchBar(text: $searchQuery)
+                .padding(.horizontal)
+            Spacer().frame(height: height*0.08)
             Text("Suas sugestões")
                 .padding(.leading)
                 .font(.system(.title))

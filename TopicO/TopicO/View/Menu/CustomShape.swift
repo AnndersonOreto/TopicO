@@ -13,9 +13,9 @@ struct CustomShape: Shape {
         Path { path in
             var height = min(rect.size.height, UIScreen.main.bounds.height)
             let width = rect.size.width
-            let yScale: CGFloat = 0.3
+            let yScale: CGFloat = 0.25
             height *= yScale
-            let yOffset: CGFloat = height*0.17
+            let yOffset: CGFloat = height*0.2
             
             path.move(to: CGPoint(x: 0, y: height))
             path.addLine(to: CGPoint(x: 0, y: 0))
