@@ -16,6 +16,7 @@
 		269F9BB5245B444800FBB5F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 269F9BB3245B444800FBB5F6 /* LaunchScreen.storyboard */; };
 		269F9BC0245B444800FBB5F6 /* TopicOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269F9BBF245B444800FBB5F6 /* TopicOTests.swift */; };
 		269F9BCB245B444800FBB5F6 /* TopicOUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269F9BCA245B444800FBB5F6 /* TopicOUITests.swift */; };
+		AB00CFEB2461F603009B662F /* OnboardingButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB00CFEA2461F603009B662F /* OnboardingButtonStyle.swift */; };
 		AB5C541E2461D121005FE7AE /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5C541D2461D121005FE7AE /* Tag.swift */; };
 		AB5C54202461D621005FE7AE /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5C541F2461D621005FE7AE /* DetailView.swift */; };
 		AB5C54232461DE26005FE7AE /* Jost.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB5C54222461DE26005FE7AE /* Jost.ttf */; };
@@ -55,6 +56,7 @@
 		269F9BC6245B444800FBB5F6 /* TopicOUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TopicOUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		269F9BCA245B444800FBB5F6 /* TopicOUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicOUITests.swift; sourceTree = "<group>"; };
 		269F9BCC245B444800FBB5F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB00CFEA2461F603009B662F /* OnboardingButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingButtonStyle.swift; sourceTree = "<group>"; };
 		AB5C541D2461D121005FE7AE /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		AB5C541F2461D621005FE7AE /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		AB5C54222461DE26005FE7AE /* Jost.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Jost.ttf; sourceTree = "<group>"; };
@@ -149,6 +151,15 @@
 			path = TopicOUITests;
 			sourceTree = "<group>";
 		};
+		AB00CFEC2461F821009B662F /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				AB00CFEA2461F603009B662F /* OnboardingButtonStyle.swift */,
+				AB5C54242461F373005FE7AE /* OnboardingStart.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		AB587E7C2460A4CD00205DF3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,9 +171,9 @@
 		AB587E7D2460A4D100205DF3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AB00CFEC2461F821009B662F /* Onboarding */,
 				269F9BAC245B444600FBB5F6 /* ContentView.swift */,
 				AB5C541F2461D621005FE7AE /* DetailView.swift */,
-				AB5C54242461F373005FE7AE /* OnboardingStart.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -329,6 +340,7 @@
 				269F9BA6245B444600FBB5F6 /* AppDelegate.swift in Sources */,
 				AB5C541E2461D121005FE7AE /* Tag.swift in Sources */,
 				269F9BAD245B444600FBB5F6 /* ContentView.swift in Sources */,
+				AB00CFEB2461F603009B662F /* OnboardingButtonStyle.swift in Sources */,
 				269F9BA8245B444600FBB5F6 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
