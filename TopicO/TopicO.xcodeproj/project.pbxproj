@@ -128,8 +128,8 @@
 				269F9BB6245B444800FBB5F6 /* Info.plist */,
 				ABD818F0246345B3001694BB /* TagRecommender 1.mlmodel */,
 				ABD818F2246345F2001694BB /* tags-2.json */,
-				269F9BB0245B444800FBB5F6 /* Preview Content */,
 				ABD818F424634688001694BB /* Parsing.swift */,
+				269F9BB0245B444800FBB5F6 /* Preview Content */,
 			);
 			path = TopicO;
 			sourceTree = "<group>";
