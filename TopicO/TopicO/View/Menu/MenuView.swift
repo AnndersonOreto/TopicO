@@ -24,12 +24,12 @@ struct MenuView: View {
                 .multilineTextAlignment(.center)
                 .padding(.top)
             Spacer().frame(height: height*0.017)
+            
             SearchBar(text: $searchQuery)
                 .padding(.horizontal)
-                .onTapGesture {
-                    self.showResults = true
-                }
-            NavigationLink(destination: SearchResultsView(searchQuery: self.searchQuery), isActive: self.$showResults) { Text("") }//.hidden()
+            
+//            NavigationLink(destination: SearchResultsView(searchQuery: self.searchQuery), isActive: self.$showResults) { Text("") }//.hidden()
+            
             Spacer().frame(height: height*0.08)
             Text("Suas sugestões")
                 .padding(.leading)

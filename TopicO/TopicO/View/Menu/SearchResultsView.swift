@@ -17,6 +17,11 @@ struct SearchResultsView: View {
     var body: some View {
         VStack {
             SearchBar(text: $searchQuery)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 100)
+                        .stroke()
+                        .foregroundColor(.lightGraySearchBar)
+            )
             ScrollView(.vertical, showsIndicators: false) {
                 ForEach(viewModel.tags.filter({ tag in
                     tag.name.contains(self.searchQuery.lowercased()) || self.searchQuery == ""

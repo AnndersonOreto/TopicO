@@ -8,41 +8,25 @@
 
 import SwiftUI
 
-struct SearchBar: UIViewRepresentable {
-
+struct SearchBar: View {
+    
     @Binding var text: String
-
-    class Coordinator: NSObject, UISearchBarDelegate {
-
-        @Binding var text: String
-
-        init(text: Binding<String>) {
-            _text = text
-        }
-
-        func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-            text = searchText
-        }
-    }
-
-    func makeCoordinator() -> Coordinator {
-        return Coordinator(text: $text)
-    }
-
-    func makeUIView(context: UIViewRepresentableContext<SearchBar>) -> UISearchBar {
-        let searchBar = UISearchBar(frame: .zero)
-        searchBar.delegate = context.coordinator
-        
-        searchBar.searchBarStyle = .minimal
-        searchBar.isTranslucent = false
-        searchBar.searchTextField.backgroundColor = .white
-        searchBar.placeholder = "Buscar"
-        
-        return searchBar
-    }
-
-    func updateUIView(_ uiView: UISearchBar,
-                      context: UIViewRepresentableContext<SearchBar>) {
-        uiView.text = text
+    
+    var body: some View {
+        HStack(alignment: .center) {
+            Image(systemName: "magnifyingglass")
+            .foregroundColor(.darkGraySearchBar)
+            .padding(.leading)
+            TextField("Buscar", text: $text).padding([.vertical, .trailing])
+            if text != "" {
+                Button(action: {
+                    self.text = ""
+                }) {
+                    Image(systemName: "xmark.circle.fill")
+                        .padding(.trailing)
+                        .foregroundColor(.darkGraySearchBar)
+                }
+            }
+        }.background(RoundedRectangle(cornerRadius: 100).fill(Color.white))
     }
 }
