@@ -11,6 +11,8 @@ import SwiftUI
 struct MenuView: View {
     
     @State var searchQuery: String = ""
+    @State var showResults: Bool = false
+    @State var isNavigationBarHidden: Bool = true
     
     let height = UIScreen.main.bounds.height
     
@@ -24,6 +26,10 @@ struct MenuView: View {
             Spacer().frame(height: height*0.017)
             SearchBar(text: $searchQuery)
                 .padding(.horizontal)
+                .onTapGesture {
+                    self.showResults = true
+                }
+            NavigationLink(destination: SearchResultsView(searchQuery: self.searchQuery), isActive: self.$showResults) { Text("") }//.hidden()
             Spacer().frame(height: height*0.08)
             Text("Suas sugestões")
                 .padding(.leading)
@@ -43,6 +49,15 @@ struct MenuView: View {
                 }
             TagListView()
         }.background(background)
+        .navigationBarTitle("", displayMode: .inline)
+        .navigationBarHidden(isNavigationBarHidden)
+        .onAppear {
+                self.isNavigationBarHidden = true
+        }
+        .onDisappear {
+            self.isNavigationBarHidden = false
+        }
+        
     }
 }
 
@@ -52,7 +67,7 @@ extension MenuView {
             Rectangle()
                 .fill(Color.clear)
             CustomShape()
-                .fill(Color.blue)
+                .fill(Color.purpleShape)
         }.edgesIgnoringSafeArea(.vertical)
     }
 }

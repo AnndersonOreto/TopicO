@@ -12,25 +12,11 @@ struct TagListView: View {
     
     @ObservedObject var viewModel = RecommendedViewModel()
     
-    let width = UIScreen.main.bounds.width
-    
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .leading) {
                 ForEach(viewModel.tags) { tag in
-                    HStack(alignment: .center) {
-                        Image(tag.image)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .cornerRadius(10)
-                        Text(tag.name)
-                            .frame(maxWidth: .infinity)
-                            .padding(.trailing)
-                            .foregroundColor(Color.purpleNormalText)
-                    }.frame(height: self.width*0.24)
-                    .background(Color.white)
-                    .cornerRadius(10)
-                    .shadow(color: .shadow, radius: 20, x: 2, y: 2)
+                    TagRow(image: tag.image, text: tag.name)
                 }.padding(.horizontal)
             }.padding(.vertical)
         }

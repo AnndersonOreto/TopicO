@@ -14,4 +14,5 @@ extension Color {
     static let purpleLargeText = Color(red: 23/255, green: 11/255, blue: 91/255, opacity: 1)
     static let purpleNormalText = Color(red: 109/255, green: 102/255, blue: 152/255, opacity: 1)
     static let blueNumber = Color(red: 134/255, green: 57/255, blue: 255/255, opacity: 1)
+    static let purpleShape = Color(red: 134/255, green: 57/255, blue: 255/255)
 }
