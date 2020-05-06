@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2648A9A52463226100DD2472 /* SelectionOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2648A9A42463226100DD2472 /* SelectionOnboardingView.swift */; };
+		2648A9A724632C7100DD2472 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2648A9A624632C7100DD2472 /* Categories.swift */; };
+		2648A9A92463313C00DD2472 /* OnboardingSelectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2648A9A82463313C00DD2472 /* OnboardingSelectionButton.swift */; };
 		269F9BA6245B444600FBB5F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269F9BA5245B444600FBB5F6 /* AppDelegate.swift */; };
 		269F9BA8245B444600FBB5F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269F9BA7245B444600FBB5F6 /* SceneDelegate.swift */; };
 		269F9BAB245B444600FBB5F6 /* TopicO.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 269F9BA9245B444600FBB5F6 /* TopicO.xcdatamodeld */; };
@@ -41,6 +44,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2648A9A42463226100DD2472 /* SelectionOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionOnboardingView.swift; sourceTree = "<group>"; };
+		2648A9A624632C7100DD2472 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
+		2648A9A82463313C00DD2472 /* OnboardingSelectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSelectionButton.swift; sourceTree = "<group>"; };
 		269F9BA2245B444600FBB5F6 /* TopicO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopicO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		269F9BA5245B444600FBB5F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		269F9BA7245B444600FBB5F6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -156,6 +162,8 @@
 			children = (
 				AB00CFEA2461F603009B662F /* OnboardingButtonStyle.swift */,
 				AB5C54242461F373005FE7AE /* OnboardingStart.swift */,
+				2648A9A42463226100DD2472 /* SelectionOnboardingView.swift */,
+				2648A9A82463313C00DD2472 /* OnboardingSelectionButton.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -164,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				AB5C541D2461D121005FE7AE /* Tag.swift */,
+				2648A9A624632C7100DD2472 /* Categories.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -334,12 +343,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2648A9A52463226100DD2472 /* SelectionOnboardingView.swift in Sources */,
 				AB5C54252461F373005FE7AE /* OnboardingStart.swift in Sources */,
 				269F9BAB245B444600FBB5F6 /* TopicO.xcdatamodeld in Sources */,
 				AB5C54202461D621005FE7AE /* DetailView.swift in Sources */,
 				269F9BA6245B444600FBB5F6 /* AppDelegate.swift in Sources */,
 				AB5C541E2461D121005FE7AE /* Tag.swift in Sources */,
 				269F9BAD245B444600FBB5F6 /* ContentView.swift in Sources */,
+				2648A9A724632C7100DD2472 /* Categories.swift in Sources */,
+				2648A9A92463313C00DD2472 /* OnboardingSelectionButton.swift in Sources */,
 				AB00CFEB2461F603009B662F /* OnboardingButtonStyle.swift in Sources */,
 				269F9BA8245B444600FBB5F6 /* SceneDelegate.swift in Sources */,
 			);
