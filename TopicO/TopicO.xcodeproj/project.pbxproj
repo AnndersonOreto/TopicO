@@ -21,6 +21,7 @@
 		AB5C54202461D621005FE7AE /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5C541F2461D621005FE7AE /* DetailView.swift */; };
 		AB5C54232461DE26005FE7AE /* Jost.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB5C54222461DE26005FE7AE /* Jost.ttf */; };
 		AB5C54252461F373005FE7AE /* OnboardingStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5C54242461F373005FE7AE /* OnboardingStart.swift */; };
+		ABD818F1246345B3001694BB /* TagRecommender 1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = ABD818F0246345B3001694BB /* TagRecommender 1.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		AB5C541F2461D621005FE7AE /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		AB5C54222461DE26005FE7AE /* Jost.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Jost.ttf; sourceTree = "<group>"; };
 		AB5C54242461F373005FE7AE /* OnboardingStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStart.swift; sourceTree = "<group>"; };
+		ABD818F0246345B3001694BB /* TagRecommender 1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "TagRecommender 1.mlmodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				269F9BB3245B444800FBB5F6 /* LaunchScreen.storyboard */,
 				269F9BA9245B444600FBB5F6 /* TopicO.xcdatamodeld */,
 				269F9BB6245B444800FBB5F6 /* Info.plist */,
+				ABD818F0246345B3001694BB /* TagRecommender 1.mlmodel */,
 				269F9BB0245B444800FBB5F6 /* Preview Content */,
 			);
 			path = TopicO;
@@ -337,6 +340,7 @@
 				AB5C54252461F373005FE7AE /* OnboardingStart.swift in Sources */,
 				269F9BAB245B444600FBB5F6 /* TopicO.xcdatamodeld in Sources */,
 				AB5C54202461D621005FE7AE /* DetailView.swift in Sources */,
+				ABD818F1246345B3001694BB /* TagRecommender 1.mlmodel in Sources */,
 				269F9BA6245B444600FBB5F6 /* AppDelegate.swift in Sources */,
 				AB5C541E2461D121005FE7AE /* Tag.swift in Sources */,
 				269F9BAD245B444600FBB5F6 /* ContentView.swift in Sources */,
