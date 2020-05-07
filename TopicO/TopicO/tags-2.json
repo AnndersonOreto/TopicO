@@ -1,0 +1,233 @@
+  {
+   "tags":
+   [
+     {
+       "array": [
+         "Quanto calça?",
+         "Qual (Quais) calçados mais gosta de usar e por que? (Mostre no vídeo os calçados coloque e depois tire)",
+         "Alguma vez já teve ou tem chulé? Conte como foi e por que teve.",
+         "Na sua casa gosta mais de andar descalça ou não? Por que?",
+         "Prefere usar calçados abertos para mostrar seus pés ou fechados? Por que?",
+         "Qual o lugar mais inusitado ou diferente que ficou com vontade de estar descalça?",
+         "Já ficou descalça em algum lugar publico? Qual? Conte como foi.",
+         "Quais cuidados tem com os seus pés?",
+         "Você gosta de seus pés? Por que?",
+         "Mudaria alguma coisa em seus pés ou gosta do jeito que são?",
+         "Alguém já chegou a admirar ou elogiar seus pés? Comente.",
+         "Qual foi a coisa mais inusitada que aconteceu ou pisou quando estava andando descalça? Conte.",
+         "Já pisou em algum inseto estando descalça? Conte como foi.",
+         "Qual foi a situação que seus pés ficaram mais fedidos ou sujos? Conte como foi.",
+         "Conte algum segredo ou algo que nunca contou que tenha a ver com seus pés. "
+       ],
+       "tag_description": "",
+       "image_name": "img_tudo_sobre_pes",
+       "tag_category": "body",
+       "tag_amount": 15,
+       "tag_name": "Tudo sobre os pés",
+       "tag_id": 1
+     },
+     {
+       "array": [
+         "Quantos perfumes você tem?",
+         "Qual o seu perfume mais caro?",
+         "Qual o seu perfume mais barato?",
+         "Um cheiro para o verão",
+         "Um cheiro para o inverno",
+         "Um perfume para arrasar",
+         "Melhor embalagem",
+         "Qual seu perfume preferido?",
+         "Qual perfume você menos gosta?",
+         "Tem algum perfume vazio que você não jogou fora?"
+       ],
+       "tag_description": "",
+       "image_name": "img_banho_perfume",
+       "tag_category": "body, woman",
+       "tag_amount": 10,
+       "tag_name": "Banho de perfume",
+       "tag_id": 2
+     },
+     {
+       "array": [
+         "Como você se vê daqui a dez anos?",
+         "Você acha que terá os mesmos amigos em 10 anos?",
+         "Se vê casada(o) e com filhos?",
+         "Qual o seu maior medo?",
+         "Que diferença gostaria de fazer no mundo?",
+         "O que quer mudar em si mesmo em um futuro próximo?",
+         "Qual viagem gostaria de fazer nos próximos anos?",
+         "Quais coisas mais gostaria de aprender?",
+         "Qual será sua arma de escolha num futuro apocalipse zumbi?",
+         "O que está fazendo pra realizar tudo que deseja no futuro?"
+       ],
+       "tag_description": "",
+       "image_name": "img_visao_futuro",
+       "tag_category": "general",
+       "tag_amount": 10,
+       "tag_name": "Visão do futuro",
+       "tag_id": 3
+     },
+     {
+       "array": [
+         "Como conheceu a série?",
+         "Qual a sua avaliação sobre a série?",
+         "Personagem favorito?",
+         "Personagem mais bonito?",
+         "Crush?",
+         "Aprendeu algo com a série?",
+         "Qual personagem você se identifica?",
+         "Qual momento mais impactante na série?",
+         "Você já indicou ou indicaria a série?",
+         "Personagem lixo?",
+         "Qual personagem seria você na série?",
+         "Você já foi uma Hanna Backer? Conte um pouco da sua história."
+       ],
+       "tag_description": "",
+       "image_name": "img_13_reason_why",
+       "tag_category": "culture",
+       "tag_amount": 12,
+       "tag_name": "13 reasons why",
+       "tag_id": 4
+     },
+    {
+      "array": [
+        "Qual é a sua cidade e estado?",
+        "A sua cidade é grande?",
+        "Você acha que sua cidade tem um bom prefeito(a)?",
+        "Você nasceu na cidade que mora atualmente?",
+        "Você mora em um lugar calmo ou mais barulhento?",
+        "Tem área verde na sua cidade?",
+        "Qual é o seu lugar favorito para passear na sua cidade?",
+        "Você gosta das lojas de sua cidade?",
+        "Você gostaria de mudar de cidade? Se sim qual?",
+        "Você conhece a cidade inteira ou tem lugares que você nunca foi?",
+        "Tem muitos eventos e baladas na sua cidade?",
+        "Você já foi assaltado na sua cidade ou se envolveu em algum acidente?",
+        "Se pudesse o que você mudaria na sua cidade?",
+        "Indicaria sua cidade para outras pessoas morar ?"
+      ],
+      "tag_description": "",
+      "image_name": "img_minha_cidade",
+      "tag_category": "culture",
+      "tag_amount": 14,
+      "tag_name": "Minha cidade",
+      "tag_id": 5
+    },
+     {
+       "array": [
+         "Quantas vezes no ano você tem férias?",
+         "O que você mais gosta de fazer nas férias?",
+         "Viaja ou fica em casa?",
+         "Tem algum mico que já passou nas férias? Conte",
+         "Você dorme até tarde ou acorda cedo?",
+         "Fica entediado quando está de férias",
+         "Qual seria as férias dos seus sonhos?",
+         "Assiste muitos filmes e séries nas férias?",
+         "Quanto tempo você acha que merece ter de férias?",
+         "O que prefere? Praia campo ou shopping?",
+         "Com quem gostaria de passar suas férias?",
+         "Você planeja o que fazer nas férias ou deixa rolar?",
+         "Gasta muito nas férias?",
+         "Como se sente no último dia de férias?",
+         "Qual sua dica para quem deseja ter umas férias legais?"
+       ],
+       "tag_description": "",
+       "image_name": "img_to_ferias",
+       "tag_category": "culture",
+       "tag_amount": 15,
+       "tag_name": "Tô de férias",
+       "tag_id": 6
+     },
+     {
+       "array": [
+         "Você gosta da sua escola?",
+         "Que ano você está?",
+         "Sempre estudou na mesma escola ou já mudou?",
+         "Qual é a sua matéria preferida?",
+         "Qual matéria você tem mais dificuldade?",
+         "Sua escola é particular ou pública?",
+         "Tem um(a) professor(a) favorito(a)?",
+         "Você já brigou na escola? Se sim qual foi o motivo?",
+         "Você já matou aula ou tem muitas faltas?",
+         "Você já sofreu bullying ou sofre?",
+         "Você se acha popular na escola?",
+         "Você demora para se arrumar para ir a escola?",
+         "Tem muitos amigos na escola?",
+         "Seu boletim tem sempre notas boas?",
+         "Você se acha estudioso(a)?",
+         "Se pudesse mudar algo na sua escola o que mudaria?"
+       ],
+       "tag_description": "",
+       "image_name": "img_minha_escola",
+       "tag_category": "culture",
+       "tag_amount": 16,
+       "tag_name": "Minha escola",
+       "tag_id": 7
+     },
+     {
+       "array": [
+         "Carnaval ou Ficar em casa?",
+         "Beber refrigerante ou Beber água?",
+         "Jogar no videogame ou Jogar no celular?",
+         "Tomar sol ou Fugir do sol?",
+         "Calça jeans ou Bermuda?",
+         "Som alto ou Fone de ouvido?",
+         "Lavar o cabelo todo dia ou Lavar o cabelo de vez em quando?",
+         "Pintar o cabelo ou Deixar natural?",
+         "Acampar ou Ir a um show?",
+         "Sentar para comer na mesa ou sentar para comer no sofá?",
+         "Computador de mesa ou Notebook?",
+         "Falar muito ou Escutar muito?",
+         "Óculos de sol ou Boné?",
+         "Comer em casa ou Comer na rua?",
+         "Assistir um filme em casa ou Ir ao cinema?"
+       ],
+       "tag_description": "",
+       "image_name": "img_escolha_um",
+       "tag_category": "culture",
+       "tag_amount": 15,
+       "tag_name": "Escolha um",
+       "tag_id": 8
+     },
+     {
+       "array": [
+         "Você sente fome de madrugada?",
+         "Indique três alimentos que você ama comer quando bate aquela fome na madrugada?",
+         "Já dormiu com fome por medo de levantar no escuro para ir a cozinha?",
+         "Já ficou na cama imaginando as coisas gostosas que tinham para comer mas não levantou porque estava de dieta?",
+         "Quando não tem nada de gostoso para comer você faz ou deixa pra lá por preguiça?",
+         "Qual a maior loucura que já fez de madrugada porque estava com muita fome?",
+         "Já deixou alguma gordice para comer mais tarde e quando abriu a geladeira não estava mais lá?",
+         "Já encontrou feijão no pote de sorvete?",
+         "Na madrugada assistindo um filme ou série o que não pode faltar para comer?",
+         "Já fez aquele mexidão na panela mesmo e devorou tudinho?",
+         "Indique quem quiser para responder esta tag."
+       ],
+       "tag_description": "",
+       "image_name": "img_fome_madrugada",
+       "tag_category": "culture",
+       "tag_amount": 11,
+       "tag_name": "Fome na madrugada",
+       "tag_id": 9
+     },
+     {
+       "array": [
+         "Como foi a sua páscoa conte em detalhes",
+         "O que ganhou?",
+         "Passou em que lugar?",
+         "Com quem passou?",
+         "O que mais gosta na páscoa?",
+         "Você come seu ovo de páscoa rápido ou demora para acabar?",
+         "Qual seu sonho mais louco de páscoa?",
+         "O que você deu para os seus amigos parentes etc?",
+         "Ganhou algo sem ser chocolate?",
+         "Se você pudesse fazer um milagre de páscoa qual seria?"
+       ],
+       "tag_description": "",
+       "image_name": "img_pascoa",
+       "tag_category": "culture",
+       "tag_amount": 10,
+       "tag_name": "Páscoa",
+       "tag_id": 10
+     }
+   ]
+ }

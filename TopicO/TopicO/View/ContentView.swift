@@ -10,8 +10,22 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+        
         NavigationView {
-            MenuView()
+            
+            ZStack {
+                
+                // If user has not entered for the first time
+                if (UserDefaults.standard.value(forKey: "isFirstLogin") != nil) {
+                    
+                    // Main screen
+                    DetailView(tag: Tag())
+                } else {
+                    
+                    // Onboarding screen
+                    OnboardingStart()
+                }
+            }
         }
     }
 }
