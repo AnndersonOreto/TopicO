@@ -34,14 +34,14 @@ struct OnboardingSelectionButton: View {
                 
                 if self.isSelected {
                     Text(self.category.categoryName)
-                        .font(.system(size: 20))
-                        .fontWeight(.medium)
+                        .font(.system(size: 18))
+                        .fontWeight(.regular)
                         .foregroundColor(.purple)
                 } else {
                     Text(self.category.categoryName)
-                        .font(.system(size: 20))
-                        .fontWeight(.medium)
-                        .foregroundColor(.gray)
+                        .font(.system(size: 18))
+                        .fontWeight(.regular)
+                        .foregroundColor(Color(red: 23/255, green: 11/255, blue: 91/255))
                 }
             }
         }

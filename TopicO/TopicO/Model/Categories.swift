@@ -14,10 +14,10 @@ struct Categories: Hashable {
     var categoryImage: String
 }
 
-let categories = [[Categories(categoryName: "men", categoryImage: "teste"), Categories(categoryName: "women", categoryImage: "teste")],
-                  [Categories(categoryName: "question", categoryImage: "teste"), Categories(categoryName: "game", categoryImage: "teste")],
-                  [Categories(categoryName: "individual", categoryImage: "teste"), Categories(categoryName: "group", categoryImage: "teste")],
-                  [Categories(categoryName: "adult", categoryImage: "teste"), Categories(categoryName: "children", categoryImage: "teste")]]
+let categories = [
+                  [Categories(categoryName: "Question", categoryImage: "teste"), Categories(categoryName: "Game", categoryImage: "teste")],
+                  [Categories(categoryName: "Individual", categoryImage: "teste"), Categories(categoryName: "Group", categoryImage: "teste")],
+                  [Categories(categoryName: "Adult", categoryImage: "teste"), Categories(categoryName: "Children", categoryImage: "teste")]]
     
 //    , "women",
 //                  "adult", "children",

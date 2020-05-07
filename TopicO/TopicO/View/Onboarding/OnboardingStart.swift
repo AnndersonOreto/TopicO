@@ -17,11 +17,11 @@ struct OnboardingStart: View {
                 .resizable()
                 .frame(width: getImageSize(isWidth: true), height: getImageSize(isWidth: false))
             VStack(spacing:30){
-                Text("Random topics to talk about")
+                Text("Ficou sem assunto? \nPrecisa de uma ajudinha?")
                     .font(.custom("Jost", size: 35)).fontWeight(.medium)
                     .multilineTextAlignment(.center)
                     .foregroundColor(Color(red: 23/255, green: 11/255, blue: 91/255))
-                Text("Neque porro quisquam est qui dolorem ipsum quia dolor sit amet.")
+                Text("Relaxa, separamos algumas perguntas que podem ajudar você!")
                     .font(.custom("Jost", size: 20)).fontWeight(.regular)
                     .multilineTextAlignment(.center)
                     .foregroundColor(Color(red: 130/255, green: 130/255, blue: 130/255))
@@ -39,6 +39,8 @@ struct OnboardingStart: View {
         }
         .padding(.vertical)
         .padding(.top, 40)
+        .navigationBarTitle("", displayMode: .inline)
+        .navigationBarHidden(true)
     }
     
     func getImageSize(isWidth: Bool) -> CGFloat {

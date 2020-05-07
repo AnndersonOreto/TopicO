@@ -10,14 +10,16 @@ import SwiftUI
 
 struct RecommendedView: View {
     
-    @ObservedObject var viewModel = RecommendedViewModel()
+    @State var recommended_tag_array: [Tag]
     
     var body: some View {
         
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
-                ForEach(viewModel.tags) { tag in
-                    TagCard(image: tag.image, text: tag.name)
+                ForEach(recommended_tag_array) { tag in
+                    NavigationLink(destination: DetailView(tag: tag)) {
+                        TagCard(image: tag.image, text: tag.name)
+                    }.buttonStyle(PlainButtonStyle())
                 }
             }.padding(.all)
         }
@@ -36,22 +38,15 @@ struct TagCard: View {
         VStack {
             Image(image)
                 .resizable()
-                .aspectRatio(contentMode: .fill)
+                .aspectRatio(contentMode: .fit)
             Text(text)
-                .padding([.horizontal, .bottom])
-                .font(.system(.subheadline))
+                .font(.custom("Jost", size: 18)).fontWeight(.regular)
+                .padding([.bottom])
                 .foregroundColor(Color.purpleNormalText)
                 .lineLimit(2)
         }.frame(width: self.width*0.42)
         .background(Color.white)
         .cornerRadius(10)
-        .shadow(color: .shadow, radius: 20, x: 2, y: 2)
-    }
-}
-
-// MARK: - Previews
-struct RecommendedView_Previews: PreviewProvider {
-    static var previews: some View {
-        RecommendedView()
+        .shadow(color: .shadow, radius: 10, x: 2, y: 2)
     }
 }

@@ -16,22 +16,22 @@ struct DetailView: View {
         ZStack{
             VStack{
                 ZStack{
-                    Image("teste")
-                    .resizable()
-                    .frame(width: getImageSize(isWidth: true), height: getImageSize(isWidth: false))
+                    Image(tag.image)
+                        .resizable()
+                        .frame(width: getImageSize(isWidth: true), height: getImageSize(isWidth: false))
                     Rectangle()
                         .fill(Color(red: 76/255, green: 0/255, blue: 195/255).opacity(0.63))
-                    .frame(width: getImageSize(isWidth: true), height: getImageSize(isWidth: false))
+                        .frame(width: getImageSize(isWidth: true), height: getImageSize(isWidth: false))
                 }
                 Spacer()
             }
             VStack{
                 HStack{
                     VStack(alignment: .leading){
-//                        Button(action: shareAction){
-//                            Image(systemName: "square.and.arrow.up")
-//                            .foregroundColor(Color.white)
-//                        }
+                        //                        Button(action: shareAction){
+                        //                            Image(systemName: "square.and.arrow.up")
+                        //                            .foregroundColor(Color.white)
+                        //                        }
                         Text(tag.name)
                             .font(.custom("Jost", size: 28)).fontWeight(.medium)
                             .foregroundColor(Color.white)
@@ -43,12 +43,12 @@ struct DetailView: View {
                     ForEach(0..<tag.questions.count) { i in
                         HStack{
                             Text("\(i + 1).")
-                            .font(.custom("Jost", size: 20)).fontWeight(.medium)
-                            .lineLimit(0)
-                            .foregroundColor(Color(red: 134/255, green: 57/255, blue: 255/255))
+                                .font(.custom("Jost", size: 20)).fontWeight(.medium)
+                                .lineLimit(0)
+                                .foregroundColor(Color(red: 134/255, green: 57/255, blue: 255/255))
                             Text(self.tag.questions[i])
-                            .font(.custom("Jost", size: 20)).fontWeight(.regular)
-                            .foregroundColor(Color(red: 23/255, green: 11/255, blue: 91/255))
+                                .font(.custom("Jost", size: 20)).fontWeight(.regular)
+                                .foregroundColor(Color(red: 23/255, green: 11/255, blue: 91/255))
                         }.padding()
                     }
                 }

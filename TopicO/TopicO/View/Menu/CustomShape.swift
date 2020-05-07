@@ -13,7 +13,7 @@ struct CustomShape: Shape {
         Path { path in
             var height = min(rect.size.height, UIScreen.main.bounds.height)
             let width = rect.size.width
-            let yScale: CGFloat = 0.25
+            let yScale: CGFloat = 0.28
             height *= yScale
             let yOffset: CGFloat = height*0.2
             

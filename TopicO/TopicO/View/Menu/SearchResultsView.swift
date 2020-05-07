@@ -35,6 +35,7 @@ struct SearchResultsView: View {
             
         }
         .navigationBarTitle("", displayMode: .inline)
+        .navigationBarHidden(false)
     }
 }
 

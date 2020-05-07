@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
         
         NavigationView {
@@ -19,7 +20,7 @@ struct ContentView: View {
                 if (UserDefaults.standard.value(forKey: "isFirstLogin") != nil) {
                     
                     // Main screen
-                    DetailView(tag: Tag())
+                    MenuView()
                 } else {
                     
                     // Onboarding screen

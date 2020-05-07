@@ -10,12 +10,16 @@ import SwiftUI
 
 struct SelectionOnboardingView: View {
     
+    @State var isActive: Bool = false
     @State var selectedRows = Set<String>()
     
     var body: some View {
         
         // Main structure
         ZStack {
+            
+            // Link to the main screen
+            NavigationLink("", destination: MenuView(), isActive: $isActive)
             
             // Auxiliary geometry tools
             GeometryReader { geometry in
@@ -66,6 +70,8 @@ struct SelectionOnboardingView: View {
                             // Confirmation button
                             Button(action: {
                                 
+                                self.isActive.toggle()
+//                                UserDefaults.standard.set(false, forKey: "isFirstLogin")
                             }) {
                                 
                                 // Button properties content
@@ -81,7 +87,8 @@ struct SelectionOnboardingView: View {
                     }
                 }
             }
-        }
+        }.navigationBarTitle("", displayMode: .inline)
+         .navigationBarHidden(true)
     }
 }
 

@@ -23,6 +23,7 @@ struct SearchBar: View {
             TextField("Buscar", text: $text)
                 .padding([.vertical, .trailing])
                 .autocapitalization(.none)
+                .accentColor(Color.lightGraySearchBar)
             
             if text != "" {
                 Button(action: {
