@@ -9,8 +9,10 @@
 import SwiftUI
 
 struct OnboardingStart: View {
+    @State var isActive: Bool = false
     var body: some View {
         VStack{
+            NavigationLink("", destination: SelectionOnboardingView(), isActive: $isActive)
             Image("img_ilustra")
                 .resizable()
                 .frame(width: getImageSize(isWidth: true), height: getImageSize(isWidth: false))
@@ -26,7 +28,7 @@ struct OnboardingStart: View {
             }.padding(.horizontal, 50)
             Spacer()
             Button(action: {
-                //action
+                self.isActive.toggle()
             }) {
                 HStack(spacing: 20){
                    Text("Começar")

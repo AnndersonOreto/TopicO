@@ -36,7 +36,7 @@ struct SelectionOnboardingView: View {
                         .multilineTextAlignment(.center)
                         .foregroundColor(.gray)
                         .padding(16)
-                            
+                    
                     // Stack used to place confirmation button over the scroll view
                     ZStack {
                         
@@ -45,7 +45,7 @@ struct SelectionOnboardingView: View {
                             VStack(spacing: 15) {
                                 
                                 ForEach(categories, id: \.self) { row in
-                                        
+                                    
                                     HStack(spacing: 15) {
                                         
                                         ForEach(row, id: \.self) { item in
@@ -58,21 +58,26 @@ struct SelectionOnboardingView: View {
                                 .padding(.top, 16)
                         }
                         
-                        // Confirmation button
-                        Button(action: {
+                        // Stack to handle button position
+                        VStack {
                             
-                        }) {
+                            Spacer()
                             
-                            // Button properties content
-                            HStack(spacing: 20) {
+                            // Confirmation button
+                            Button(action: {
                                 
-                                // Button text
-                                Text("Feito")
-                                    .font(.custom("Jost", size: 20)).fontWeight(.medium)
-                                Image(systemName: "arrow.right")
-                            }
-                        }.buttonStyle(OnboardingButtonStyle())
-                            .position(x: UIScreen.main.bounds.width * 0.5, y: UIScreen.main.bounds.width * 1.3)
+                            }) {
+                                
+                                // Button properties content
+                                HStack(spacing: 20) {
+                                    
+                                    // Button text
+                                    Text("Feito")
+                                        .font(.custom("Jost", size: 20)).fontWeight(.medium)
+                                    Image(systemName: "arrow.right")
+                                }
+                            }.buttonStyle(OnboardingButtonStyle())
+                        }.padding(.bottom)
                     }
                 }
             }
