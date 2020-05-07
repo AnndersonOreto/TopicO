@@ -44,6 +44,7 @@ struct DetailView: View {
                         HStack{
                             Text("\(i + 1).")
                             .font(.custom("Jost", size: 20)).fontWeight(.medium)
+                            .lineLimit(0)
                             .foregroundColor(Color(red: 134/255, green: 57/255, blue: 255/255))
                             Text(self.tag.questions[i])
                             .font(.custom("Jost", size: 20)).fontWeight(.regular)
