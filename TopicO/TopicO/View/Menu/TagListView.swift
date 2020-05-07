@@ -23,6 +23,32 @@ struct TagListView: View {
     }
 }
 
+// MARK: - TagRow
+struct TagRow: View {
+    
+    @State var image: String
+    @State var text: String
+    
+    let width = UIScreen.main.bounds.width
+    
+    var body: some View {
+        HStack(alignment: .center) {
+            Image(image)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .cornerRadius(10)
+            Text(text)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.trailing)
+                .foregroundColor(Color.purpleNormalText)
+        }.frame(height: self.width*0.24)
+        .background(Color.white)
+        .cornerRadius(10)
+        .shadow(color: .shadow, radius: 20, x: 2, y: 2)
+    }
+}
+
+// MARK: - Previews
 struct TagListView_Previews: PreviewProvider {
     static var previews: some View {
         TagListView()

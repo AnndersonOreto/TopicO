@@ -10,8 +10,7 @@ import SwiftUI
 
 struct MenuView: View {
     
-    @State var searchQuery: String = ""
-    @State var showResults: Bool = false
+    //@State var searchQuery: String = ""
     @State var isNavigationBarHidden: Bool = true
     
     let height = UIScreen.main.bounds.height
@@ -25,10 +24,10 @@ struct MenuView: View {
                 .padding(.top)
             Spacer().frame(height: height*0.017)
             
-            SearchBar(text: $searchQuery)
-                .padding(.horizontal)
-            
-//            NavigationLink(destination: SearchResultsView(searchQuery: self.searchQuery), isActive: self.$showResults) { Text("") }//.hidden()
+            NavigationLink(destination: SearchResultsView()) {
+                SearchFakeButton()
+                    .padding(.horizontal)
+            }
             
             Spacer().frame(height: height*0.08)
             Text("Suas sugestões")
@@ -52,7 +51,7 @@ struct MenuView: View {
         .navigationBarTitle("", displayMode: .inline)
         .navigationBarHidden(isNavigationBarHidden)
         .onAppear {
-                self.isNavigationBarHidden = true
+            self.isNavigationBarHidden = true
         }
         .onDisappear {
             self.isNavigationBarHidden = false
@@ -61,7 +60,10 @@ struct MenuView: View {
     }
 }
 
+// MARK: - Extension
 extension MenuView {
+    
+    // MARK: background view
     var background: some View {
         ZStack {
             Rectangle()
@@ -72,6 +74,7 @@ extension MenuView {
     }
 }
 
+// MARK: - Previews
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
         MenuView()
