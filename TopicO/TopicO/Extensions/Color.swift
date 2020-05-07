@@ -17,4 +17,5 @@ extension Color {
     static let purpleShape = Color(red: 134/255, green: 57/255, blue: 255/255)
     static let lightGraySearchBar = Color(red: 208/255, green: 208/255, blue: 208/255)
     static let darkGraySearchBar = Color(red: 190/255, green: 190/255, blue: 190/255)
+    static let grayFontSearchBar = Color(red: 155/255, green: 149/255, blue: 149/255)
 }

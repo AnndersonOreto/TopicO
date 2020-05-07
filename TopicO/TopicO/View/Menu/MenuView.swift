@@ -11,75 +11,116 @@ import SwiftUI
 struct MenuView: View {
     
     @ObservedObject var viewModel = MenuViewModel()
-    //@State var searchQuery: String = ""
+    @State var textSearched: String = ""
     @State var isNavigationBarHidden: Bool = true
+    @State var isSearching: Bool = false
     
+    var itemsId: [Int]
+    
+    let width = UIScreen.main.bounds.width
     let height = UIScreen.main.bounds.height
     
     var body: some View {
-        VStack(spacing: 0) {
-            Text("Ótimo, \nvamos começar!")
-                .font(.custom("Jost", size: 35)).fontWeight(.medium)
-                .foregroundColor(.white)
-                .multilineTextAlignment(.center)
-                .padding(.top)
-            Spacer().frame(height: height*0.017)
+        
+        ZStack() {
             
-            NavigationLink(destination: SearchResultsView()) {
-                SearchFakeButton()
-                    .padding(.horizontal)
-            }.buttonStyle(PlainButtonStyle())
+            VStack(spacing: 0) {
+                
+                Image("img_shape")
+                    .resizable()
+                    .frame(width: width, height: isSearching ? height*0.16 : height*0.3)
+                
+                
+                if isSearching {
+                    
+                    SearchResultsView(viewModel: viewModel, searchQuery: $textSearched)
+                    
+                } else {
+                        
+                    HStack {
+                        Text("Suas sugestões")
+                            .font(.custom("Jost", size: 25)).fontWeight(.medium)
+                            .padding(.leading)
+                            .foregroundColor(Color.purpleLargeText)
+                        
+                        Spacer()
+                    }.padding(.top)
+                    
+                    RecommendedView(viewModel: viewModel)
+                    
+                    Spacer().frame(height: height*0.04)
+                    
+                    HStack {
+                        Text("Confira também")
+                            .font(.custom("Jost", size: 25)).fontWeight(.medium)
+                            .padding(.leading)
+                            .foregroundColor(Color.purpleLargeText)
+                        
+                        Spacer()
+                    }
+                    
+                    TagListView(tag_array: viewModel.tag_array)
+                        
+                }
+            }.edgesIgnoringSafeArea(.vertical)
             
-            Spacer().frame(height: height*0.08)
-            HStack {
-                Text("Suas sugestões")
-                    .font(.custom("Jost", size: 25)).fontWeight(.medium)
-                    .padding(.leading)
-                    .foregroundColor(Color.purpleLargeText)
+            
+            VStack {
+                
+                if !isSearching {
+                    Text("Ótimo, \nvamos começar!")
+                    .font(.custom("Jost", size: 35)).fontWeight(.medium)
+                    .foregroundColor(.white)
+                    .multilineTextAlignment(.center)
+                    .padding(.top)
+                }
+                
+                Spacer().frame(height: height*0.017)
+                
+                HStack {
+                    
+                    SearchBar(text: $textSearched, isSearching: $isSearching)
+                    
+                    if isSearching {
+                        
+                        Button(action: {
+                            withAnimation {
+                                self.isSearching.toggle()
+                            }
+                            
+                            UIApplication.shared.endEditing()
+                        }) {
+                            Text("Cancel")
+                                .foregroundColor(.white)
+                        }
+                    }
+                }.padding(.horizontal)
+                
                 
                 Spacer()
             }
-            RecommendedView(recommended_tag_array: viewModel.recommender_tag_array)
-            Spacer().frame(height: height*0.04)
-            HStack {
-                Text("Confira também")
-                    .font(.custom("Jost", size: 25)).fontWeight(.medium)
-                    .padding(.leading)
-                    .foregroundColor(Color.purpleLargeText)
-                
-                Spacer()
-            }
-            TagListView(tag_array: viewModel.tag_array)
-        }.background(background)
-            .navigationBarTitle("", displayMode: .inline)
-            .navigationBarHidden(isNavigationBarHidden)
-            .onAppear {
-                self.isNavigationBarHidden = true
+            
+        }
+        .navigationBarTitle("", displayMode: .inline)
+        .navigationBarHidden(isNavigationBarHidden)
+        .onAppear {
+            self.isNavigationBarHidden = true
+            self.viewModel.recommender(with: self.itemsId)
         }
         .onDisappear {
             self.isNavigationBarHidden = false
         }
+        .onTapGesture {
+            UIApplication.shared.endEditing()
+        }
+        
         
     }
 }
 
-// MARK: - Extension
-extension MenuView {
-    
-    // MARK: background view
-    var background: some View {
-        ZStack {
-            Rectangle()
-                .fill(Color.clear)
-            CustomShape()
-                .fill(Color.purpleShape)
-        }.edgesIgnoringSafeArea(.vertical)
-    }
-}
-
 // MARK: - Previews
-struct MenuView_Previews: PreviewProvider {
-    static var previews: some View {
-        MenuView()
-    }
-}
+//struct MenuView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MenuView()
+//    }
+//}

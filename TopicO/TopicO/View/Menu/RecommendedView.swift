@@ -10,13 +10,13 @@ import SwiftUI
 
 struct RecommendedView: View {
     
-    @State var recommended_tag_array: [Tag]
+    @ObservedObject var viewModel: MenuViewModel
     
     var body: some View {
         
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
-                ForEach(recommended_tag_array) { tag in
+                ForEach(viewModel.recommender_tag_array) { tag in
                     NavigationLink(destination: DetailView(tag: tag)) {
                         TagCard(image: tag.image, text: tag.name)
                     }.buttonStyle(PlainButtonStyle())

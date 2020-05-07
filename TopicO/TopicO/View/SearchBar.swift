@@ -11,6 +11,7 @@ import SwiftUI
 struct SearchBar: View {
     
     @Binding var text: String
+    @Binding var isSearching: Bool
     
     var body: some View {
         
@@ -20,10 +21,14 @@ struct SearchBar: View {
                 .foregroundColor(.darkGraySearchBar)
                 .padding(.leading)
             
-            TextField("Buscar", text: $text)
+            TextField("Buscar", text: $text, onEditingChanged: { (changed) in
+                withAnimation {
+                    self.isSearching = changed
+                }
+            })
+                .foregroundColor(Color.grayFontSearchBar)
                 .padding([.vertical, .trailing])
                 .autocapitalization(.none)
-                .accentColor(Color.lightGraySearchBar)
             
             if text != "" {
                 Button(action: {
@@ -40,15 +45,22 @@ struct SearchBar: View {
 
 struct SearchFakeButton: View {
     
+    @ObservedObject var viewModel: MenuViewModel
+    
     var body: some View {
-        HStack(alignment: .center) {
-            Image(systemName: "magnifyingglass")
-            .foregroundColor(.darkGraySearchBar)
-            .padding(.leading)
-            
-            Text("Buscar")
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding([.vertical, .trailing])
-        }.background(RoundedRectangle(cornerRadius: 100).fill(Color.white))
+        NavigationLink(destination: DetailView(tag: Tag())) {
+            HStack(alignment: .center) {
+                Image(systemName: "magnifyingglass")
+                .foregroundColor(.darkGraySearchBar)
+                .padding(.leading)
+                
+                Text("Buscar")
+                    .foregroundColor(Color.grayFontSearchBar)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding([.vertical, .trailing])
+                
+            }.background(RoundedRectangle(cornerRadius: 100).fill(Color.white))
+        }
+        
     }
 }

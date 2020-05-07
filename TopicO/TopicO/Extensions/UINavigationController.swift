@@ -17,5 +17,13 @@ extension UINavigationController {
         navigationBar.standardAppearance = newAppearance
         navigationBar.scrollEdgeAppearance = newAppearance
         navigationBar.compactAppearance = newAppearance
+        
+        navigationBar.tintColor = .white
+    }
+}
+
+extension UIApplication {
+    func endEditing() {
+        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }

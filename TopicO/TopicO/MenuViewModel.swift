@@ -11,18 +11,18 @@ import Foundation
 class MenuViewModel: ObservableObject {
     
     // All tags
-    var tag_array: [Tag] = []
+    @Published var tag_array: [Tag] = []
     
     // Machine Learning recommended tags
-    var recommender_tag_array: [Tag] = []
+    @Published var recommender_tag_array: [Tag] = []
+    
+    // Input items for recommender
+    var items = [Int64: Double]()
     
     init() {
         
         // Fetch all tags
         fetchTagArray()
-        
-        // Fetch recommended tags
-        fetchRecommenderTagArray()
     }
     
     func fetchTagArray() {
@@ -30,11 +30,51 @@ class MenuViewModel: ObservableObject {
         if let array = Parsing.parseTagsJson() {
             
             self.tag_array = array
-            self.recommender_tag_array = array
         }
     }
     
-    func fetchRecommenderTagArray() {
+    func recommender(with items: [Int]) {
         
+        for item in items {
+            let tempItem = Int64(item)
+            self.items.updateValue(10, forKey: tempItem)
+        }
+        
+        load()
+    }
+    
+    func load() {
+        
+        do{
+            let recommender = TagCategoryRecommender()
+            let input = TagCategoryRecommenderInput(items: items, k: 4, restrict_: [], exclude: [500, 501, 502, 503, 504, 505])
+            
+            let result = try recommender.prediction(input: input)
+            var tempIds = [Int]()
+            
+            for str in result.recommendations{
+                let tempId = Int(truncatingIfNeeded: str)
+                tempIds.append(tempId)
+            }
+            
+            getTagById(tempIds)
+            
+        }catch(let error){
+            print("error is \(error.localizedDescription)")
+        }
+    }
+    
+    func getTagById(_ ids: [Int]) {
+        
+        // PRECISA MELHORIA URGENTE!!! #SalvaAGenteRenan
+        recommender_tag_array.removeAll()
+        
+        for id in ids {
+            for tag in tag_array {
+                if tag.id == id {
+                    recommender_tag_array.append(tag)
+                }
+            }
+        }
     }
 }

@@ -21,7 +21,7 @@
        ],
        "tag_description": "",
        "image_name": "img_tudo_sobre_pes",
-       "tag_category": "body",
+       "tag_category": "pessoal, variadas",
        "tag_amount": 15,
        "tag_name": "Tudo sobre os pés",
        "tag_id": 1
@@ -41,7 +41,7 @@
        ],
        "tag_description": "",
        "image_name": "img_banho_perfume",
-       "tag_category": "body, woman",
+       "tag_category": "pessoal, casal, variadas",
        "tag_amount": 10,
        "tag_name": "Banho de perfume",
        "tag_id": 2
@@ -61,7 +61,7 @@
        ],
        "tag_description": "",
        "image_name": "img_visao_futuro",
-       "tag_category": "general",
+       "tag_category": "variadas, filmes, series",
        "tag_amount": 10,
        "tag_name": "Visão do futuro",
        "tag_id": 3
@@ -83,7 +83,7 @@
        ],
        "tag_description": "",
        "image_name": "img_13_reason_why",
-       "tag_category": "culture",
+       "tag_category": "series, filmes, variadas",
        "tag_amount": 12,
        "tag_name": "13 reasons why",
        "tag_id": 4
@@ -107,7 +107,7 @@
       ],
       "tag_description": "",
       "image_name": "img_minha_cidade",
-      "tag_category": "culture",
+      "tag_category": "variadas, pessoal",
       "tag_amount": 14,
       "tag_name": "Minha cidade",
       "tag_id": 5
@@ -132,7 +132,7 @@
        ],
        "tag_description": "",
        "image_name": "img_to_ferias",
-       "tag_category": "culture",
+       "tag_category": "pessoal, musicas, casal",
        "tag_amount": 15,
        "tag_name": "Tô de férias",
        "tag_id": 6
@@ -158,7 +158,7 @@
        ],
        "tag_description": "",
        "image_name": "img_minha_escola",
-       "tag_category": "culture",
+       "tag_category": "pessoal, variadas",
        "tag_amount": 16,
        "tag_name": "Minha escola",
        "tag_id": 7
@@ -183,7 +183,7 @@
        ],
        "tag_description": "",
        "image_name": "img_escolha_um",
-       "tag_category": "culture",
+       "tag_category": "pessoal, casal",
        "tag_amount": 15,
        "tag_name": "Escolha um",
        "tag_id": 8
@@ -204,7 +204,7 @@
        ],
        "tag_description": "",
        "image_name": "img_fome_madrugada",
-       "tag_category": "culture",
+       "tag_category": "series, filmes, variadas",
        "tag_amount": 11,
        "tag_name": "Fome na madrugada",
        "tag_id": 9
@@ -224,7 +224,7 @@
        ],
        "tag_description": "",
        "image_name": "img_pascoa",
-       "tag_category": "culture",
+       "tag_category": "variadas, casal",
        "tag_amount": 10,
        "tag_name": "Páscoa",
        "tag_id": 10

@@ -11,7 +11,8 @@ import SwiftUI
 struct SelectionOnboardingView: View {
     
     @State var isActive: Bool = false
-    @State var selectedRows = Set<String>()
+    @State var selectedRows = Set<Int>()
+    @State var isNavigationBarHidden = true
     
     var body: some View {
         
@@ -19,7 +20,7 @@ struct SelectionOnboardingView: View {
         ZStack {
             
             // Link to the main screen
-            NavigationLink("", destination: MenuView(), isActive: $isActive)
+            NavigationLink("", destination: MenuView(itemsId: Array(selectedRows)), isActive: $isActive)
             
             // Auxiliary geometry tools
             GeometryReader { geometry in
@@ -60,6 +61,7 @@ struct SelectionOnboardingView: View {
                                 }
                             }.padding(.horizontal, 32)
                                 .padding(.top, 16)
+                                .padding(.bottom, 80)
                         }
                         
                         // Stack to handle button position
@@ -88,7 +90,13 @@ struct SelectionOnboardingView: View {
                 }
             }
         }.navigationBarTitle("", displayMode: .inline)
-         .navigationBarHidden(true)
+        .navigationBarHidden(isNavigationBarHidden)
+        .onAppear {
+            self.isNavigationBarHidden = true
+        }
+        .onDisappear {
+            self.isNavigationBarHidden = false
+        }
     }
 }
 

@@ -11,10 +11,10 @@ import SwiftUI
 struct OnboardingSelectionButton: View {
     
     var category: Categories
-    @Binding var selectedItems: Set<String>
+    @Binding var selectedItems: Set<Int>
     
     var isSelected: Bool {
-        selectedItems.contains(category.categoryName)
+        selectedItems.contains(category.categoryId)
     }
     
     var body: some View {
@@ -22,26 +22,29 @@ struct OnboardingSelectionButton: View {
         Button(action: {
             
             if self.isSelected {
-                self.selectedItems.remove(self.category.categoryName)
+                self.selectedItems.remove(self.category.categoryId)
             } else {
-                self.selectedItems.insert(self.category.categoryName)
+                self.selectedItems.insert(self.category.categoryId)
             }
             
         }) {
             VStack {
                 
                 Image(self.category.categoryImage)
+                    .resizable()
                 
                 if self.isSelected {
                     Text(self.category.categoryName)
                         .font(.system(size: 18))
                         .fontWeight(.regular)
                         .foregroundColor(.purple)
+                        .padding(.bottom)
                 } else {
                     Text(self.category.categoryName)
                         .font(.system(size: 18))
                         .fontWeight(.regular)
                         .foregroundColor(Color(red: 23/255, green: 11/255, blue: 91/255))
+                        .padding(.bottom)
                 }
             }
         }

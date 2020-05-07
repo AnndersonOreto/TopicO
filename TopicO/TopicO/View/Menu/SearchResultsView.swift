@@ -10,37 +10,30 @@ import SwiftUI
 
 struct SearchResultsView: View {
     
-    @ObservedObject var viewModel = RecommendedViewModel()
-    @State var searchQuery: String = ""
-    @State var isHidden: Bool = false
+    @ObservedObject var viewModel: MenuViewModel
+    @Binding var searchQuery: String
     
     var body: some View {
         VStack {
+            HStack {
+                Text("Resultado")
+                    .font(.custom("Jost", size: 25)).fontWeight(.medium)
+                    .padding(.leading)
+                    .foregroundColor(Color.purpleLargeText)
+                
+                Spacer()
+            }.padding(.top)
             
-            SearchBar(text: $searchQuery)
-            .overlay(
-                RoundedRectangle(cornerRadius: 100)
-                    .stroke()
-                    .foregroundColor(.lightGraySearchBar)
-            )
-            .padding([.bottom, .horizontal])
+            // MARK: GAMBIARRA PRA SCROLL APARECER
+            Text(searchQuery).foregroundColor(.clear)
             
             ScrollView(.vertical, showsIndicators: false) {
-                ForEach(viewModel.tags.filter({ tag in
-                    tag.name.lowercased().contains(self.searchQuery.lowercased())
+                ForEach(viewModel.tag_array.filter({ (tag) in
+                    tag.name.lowercased().contains(searchQuery)
                 })) { tag in
                     TagRow(image: tag.image, text: tag.name)
-                }.padding([.top, .horizontal])
-            }
-            
+                }
+            }.padding(.horizontal)
         }
-        .navigationBarTitle("", displayMode: .inline)
-        .navigationBarHidden(false)
-    }
-}
-
-struct SearchResultsView_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchResultsView(searchQuery: "")
     }
 }

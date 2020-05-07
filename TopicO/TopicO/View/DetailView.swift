@@ -28,10 +28,6 @@ struct DetailView: View {
             VStack{
                 HStack{
                     VStack(alignment: .leading){
-                        //                        Button(action: shareAction){
-                        //                            Image(systemName: "square.and.arrow.up")
-                        //                            .foregroundColor(Color.white)
-                        //                        }
                         Text(tag.name)
                             .font(.custom("Jost", size: 28)).fontWeight(.medium)
                             .foregroundColor(Color.white)
@@ -56,6 +52,15 @@ struct DetailView: View {
             }.padding(.top, UIScreen.main.bounds.width * 0.2)
             
         }.edgesIgnoringSafeArea(.all)
+        .navigationBarTitle("", displayMode: .inline)
+        .navigationBarHidden(false)
+        .navigationBarItems(trailing:
+            Button(action: shareAction){
+                Image(systemName: "square.and.arrow.up")
+                    .imageScale(.large)
+                    .foregroundColor(Color.white)
+            }
+        )
     }
     
     private func shareAction() {

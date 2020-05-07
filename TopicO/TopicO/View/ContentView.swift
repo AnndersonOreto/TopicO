@@ -20,7 +20,7 @@ struct ContentView: View {
                 if (UserDefaults.standard.value(forKey: "isFirstLogin") != nil) {
                     
                     // Main screen
-                    MenuView()
+                    MenuView(itemsId: [])
                 } else {
                     
                     // Onboarding screen

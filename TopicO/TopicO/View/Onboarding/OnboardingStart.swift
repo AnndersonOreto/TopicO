@@ -9,7 +9,10 @@
 import SwiftUI
 
 struct OnboardingStart: View {
+    
     @State var isActive: Bool = false
+    @State var isNavigationBarHidden = true
+    
     var body: some View {
         VStack{
             NavigationLink("", destination: SelectionOnboardingView(), isActive: $isActive)
@@ -40,7 +43,13 @@ struct OnboardingStart: View {
         .padding(.vertical)
         .padding(.top, 40)
         .navigationBarTitle("", displayMode: .inline)
-        .navigationBarHidden(true)
+        .navigationBarHidden(isNavigationBarHidden)
+        .onAppear {
+            self.isNavigationBarHidden = true
+        }
+        .onDisappear {
+            self.isNavigationBarHidden = false
+        }
     }
     
     func getImageSize(isWidth: Bool) -> CGFloat {
