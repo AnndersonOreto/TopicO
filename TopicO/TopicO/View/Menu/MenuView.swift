@@ -104,8 +104,17 @@ struct MenuView: View {
         .navigationBarTitle("", displayMode: .inline)
         .navigationBarHidden(isNavigationBarHidden)
         .onAppear {
+            
             self.isNavigationBarHidden = true
-            self.viewModel.recommender(with: self.itemsId)
+            
+            if self.viewModel.viewTagIds.isEmpty {
+                self.viewModel.viewTagIds = self.itemsId
+                UserDefaults.standard.set(self.viewModel.viewTagIds, forKey: "viewTags")
+            }
+            
+            print(UserDefaults.standard.array(forKey: "viewTags")  as? [Int] ?? [Int]())
+            
+            self.viewModel.recommender()
         }
         .onDisappear {
             self.isNavigationBarHidden = false

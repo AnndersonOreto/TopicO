@@ -16,6 +16,10 @@ class MenuViewModel: ObservableObject {
     // Machine Learning recommended tags
     @Published var recommender_tag_array: [Tag] = []
     
+    @Published var viewTagIds: [Int] = UserDefaults.standard.array(forKey: "viewTags")  as? [Int] ?? [Int]()
+    
+    var excludeTags: [Int64] = [500, 501, 502, 503, 504, 505]
+    
     // Input items for recommender
     var items = [Int64: Double]()
     
@@ -33,10 +37,11 @@ class MenuViewModel: ObservableObject {
         }
     }
     
-    func recommender(with items: [Int]) {
+    func recommender() {
         
-        for item in items {
+        for item in viewTagIds {
             let tempItem = Int64(item)
+            excludeTags.append(tempItem)
             self.items.updateValue(10, forKey: tempItem)
         }
         
@@ -47,7 +52,7 @@ class MenuViewModel: ObservableObject {
         
         do{
             let recommender = TagCategoryRecommender()
-            let input = TagCategoryRecommenderInput(items: items, k: 4, restrict_: [], exclude: [500, 501, 502, 503, 504, 505])
+            let input = TagCategoryRecommenderInput(items: items, k: 4, restrict_: [], exclude: excludeTags)
             
             let result = try recommender.prediction(input: input)
             var tempIds = [Int]()

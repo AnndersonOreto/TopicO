@@ -61,6 +61,21 @@ struct DetailView: View {
                     .foregroundColor(Color.white)
             }
         )
+            .onAppear {
+                self.saveArrayInUserDefaults(self.tag.id)
+            }
+    }
+    
+    
+    func saveArrayInUserDefaults(_ tagId: Int) {
+        
+        var tempArray = UserDefaults.standard.array(forKey: "viewTags")  as? [Int] ?? [Int]()
+        
+        if !tempArray.contains(tagId) {
+            tempArray.append(tagId)
+            UserDefaults.standard.set(tempArray, forKey: "viewTags")
+        }
+        print(UserDefaults.standard.array(forKey: "viewTags")  as? [Int] ?? [Int]())
     }
     
     private func shareAction() {

@@ -20,7 +20,7 @@ struct ContentView: View {
                 if (UserDefaults.standard.value(forKey: "isFirstLogin") != nil) {
                     
                     // Main screen
-                    MenuView(itemsId: [])
+                    MenuView(itemsId: UserDefaults.standard.array(forKey: "SavedIntArray")  as? [Int] ?? [Int]())
                 } else {
                     
                     // Onboarding screen
