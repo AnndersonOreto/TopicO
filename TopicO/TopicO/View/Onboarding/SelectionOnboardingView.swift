@@ -73,7 +73,7 @@ struct SelectionOnboardingView: View {
                             Button(action: {
                                 
                                 self.isActive.toggle()
-//                                UserDefaults.standard.set(false, forKey: "isFirstLogin")
+                                UserDefaults.standard.set(false, forKey: "isFirstLogin")
                             }) {
                                 
                                 // Button properties content
