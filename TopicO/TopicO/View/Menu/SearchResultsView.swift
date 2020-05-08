@@ -31,7 +31,9 @@ struct SearchResultsView: View {
                 ForEach(viewModel.tag_array.filter({ (tag) in
                     tag.name.lowercased().contains(searchQuery)
                 })) { tag in
-                    TagRow(image: tag.image, text: tag.name)
+                    NavigationLink(destination: DetailView(tag: tag)) {
+                        TagRow(image: tag.image, text: tag.name)
+                    }.buttonStyle(PlainButtonStyle())
                 }
             }.padding(.horizontal)
         }

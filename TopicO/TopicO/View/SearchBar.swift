@@ -23,7 +23,9 @@ struct SearchBar: View {
             
             TextField("Buscar", text: $text, onEditingChanged: { (changed) in
                 withAnimation {
-                    self.isSearching = changed
+                    if changed {
+                        self.isSearching = true
+                    }
                 }
             })
                 .foregroundColor(Color.grayFontSearchBar)
