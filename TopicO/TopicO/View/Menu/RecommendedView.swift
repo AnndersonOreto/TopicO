@@ -16,10 +16,17 @@ struct RecommendedView: View {
         
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
-                ForEach(viewModel.recommender_tag_array) { tag in
-                    NavigationLink(destination: DetailView(tag: tag)) {
-                        TagCard(image: tag.image, text: tag.name)
-                    }.buttonStyle(PlainButtonStyle())
+                
+                if viewModel.recommender_tag_array.isEmpty {
+                    Text("Suas sugestões acabaram 😅😅")
+                    .font(.custom("Jost", size: 20)).fontWeight(.regular)
+                    .foregroundColor(Color.purpleNormalText)
+                } else{
+                    ForEach(viewModel.recommender_tag_array) { tag in
+                        NavigationLink(destination: DetailView(tag: tag)) {
+                            TagCard(image: tag.image, text: tag.name)
+                        }.buttonStyle(PlainButtonStyle())
+                    }
                 }
             }.padding(.all)
         }
