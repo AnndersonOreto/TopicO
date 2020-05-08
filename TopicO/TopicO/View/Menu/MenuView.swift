@@ -112,7 +112,7 @@ struct MenuView: View {
                 UserDefaults.standard.set(self.viewModel.viewTagIds, forKey: "viewTags")
             }
             
-            print(UserDefaults.standard.array(forKey: "viewTags")  as? [Int] ?? [Int]())
+            self.viewModel.viewTagIds = UserDefaults.standard.array(forKey: "viewTags")  as? [Int] ?? [Int]()
             
             self.viewModel.recommender()
         }

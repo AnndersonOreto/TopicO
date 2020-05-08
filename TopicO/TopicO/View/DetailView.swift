@@ -75,7 +75,6 @@ struct DetailView: View {
             tempArray.append(tagId)
             UserDefaults.standard.set(tempArray, forKey: "viewTags")
         }
-        print(UserDefaults.standard.array(forKey: "viewTags")  as? [Int] ?? [Int]())
     }
     
     private func shareAction() {

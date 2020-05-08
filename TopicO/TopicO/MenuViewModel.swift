@@ -72,14 +72,16 @@ class MenuViewModel: ObservableObject {
     func getTagById(_ ids: [Int]) {
         
         // PRECISA MELHORIA URGENTE!!! #SalvaAGenteRenan
-        recommender_tag_array.removeAll()
+        var tempArray: [Tag] = []
         
         for id in ids {
             for tag in tag_array {
                 if tag.id == id {
-                    recommender_tag_array.append(tag)
+                    tempArray.append(tag)
                 }
             }
         }
+        
+        self.recommender_tag_array = tempArray
     }
 }
