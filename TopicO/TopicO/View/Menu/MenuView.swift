@@ -23,6 +23,9 @@ struct MenuView: View {
     @State var isNavigationBarHidden: Bool = true
     @State var isSearching: Bool = false
     
+    @State var testDrag = CGSize.zero
+    @State var testResize: Bool = false
+    
     var itemsId: [Int]
     
     let width = UIScreen.main.bounds.width
@@ -36,7 +39,7 @@ struct MenuView: View {
                 
                 Image("img_shape")
                     .resizable()
-                    .frame(width: width, height: isSearching ? height*0.16 : height*0.3)
+                    .frame(width: width, height: testResize ? height*0.16 : height*0.3)
                 
                 
                 if isSearching {
@@ -56,7 +59,7 @@ struct MenuView: View {
                     
                     RecommendedView(viewModel: viewModel)
                     
-                    Spacer().frame(height: height*0.04)
+                    Spacer().frame(height: testResize ? height*0.02: height*0.04)
                     
                     HStack {
                         Text("Confira também")
@@ -68,6 +71,7 @@ struct MenuView: View {
                     }
                     
                     TagListView(tag_array: viewModel.tag_array)
+                        .disabled(!testResize)
                         
                 }
             }.edgesIgnoringSafeArea(.vertical)
@@ -76,18 +80,20 @@ struct MenuView: View {
             VStack {
                 
                 if !isSearching {
-                    Text("Ótimo, \nvamos começar!")
-                    .font(.custom("Jost", size: 35)).fontWeight(.medium)
-                    .foregroundColor(.white)
-                    .multilineTextAlignment(.center)
-                    .padding(.top)
+                    if !testResize {
+                        Text("Ótimo, \nvamos começar!")
+                        .font(.custom("Jost", size: 35)).fontWeight(.medium)
+                        .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
+                        .padding(.top)
+                    }
                 }
                 
                 Spacer().frame(height: height*0.017)
                 
                 HStack {
                     
-                    SearchBar(text: $textSearched, isSearching: $isSearching)
+                    SearchBar(text: $textSearched, isSearching: $isSearching, resizeShape: $testResize)
                     
                     if isSearching {
                         
@@ -142,7 +148,21 @@ struct MenuView: View {
         .onTapGesture {
             UIApplication.shared.endEditing()
         }
-        
+        .gesture(DragGesture()
+            .onChanged { value in
+                self.testDrag = value.translation
+                
+                if self.testDrag.height < 0 {
+                    withAnimation{
+                        self.testResize = true
+                    }
+                } else {
+                   withAnimation{
+                        self.testResize = false
+                    }
+                }
+            }
+        )
     }
 }
 

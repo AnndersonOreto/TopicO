@@ -12,6 +12,7 @@ struct SearchBar: View {
     
     @Binding var text: String
     @Binding var isSearching: Bool
+    @Binding var resizeShape: Bool
     
     var body: some View {
         
@@ -25,6 +26,7 @@ struct SearchBar: View {
                 withAnimation {
                     if changed {
                         self.isSearching = true
+                        self.resizeShape = true
                     }
                 }
             })
