@@ -6,7 +6,7 @@
 //  Copyright © 2020 Annderson Packeiser Oreto. All rights reserved.
 //
 
-import Foundation
+import SwiftUI
 
 class MenuViewModel: ObservableObject {
     
@@ -16,7 +16,7 @@ class MenuViewModel: ObservableObject {
     // Machine Learning recommended tags
     @Published var recommender_tag_array: [Tag] = []
     
-    @Published var viewTagIds: [Int] = UserDefaults.standard.array(forKey: "viewTags")  as? [Int] ?? [Int]()
+    @Published var viewTagIds: [Int] = []
     
     var excludeTags: [Int64] = [500, 501, 502, 503, 504, 505]
     

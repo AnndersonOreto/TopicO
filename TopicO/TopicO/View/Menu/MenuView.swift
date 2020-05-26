@@ -11,6 +11,14 @@ import SwiftUI
 struct MenuView: View {
     
     @ObservedObject var viewModel = MenuViewModel()
+    
+    // Core Data ---------------------------------------------------------------------------------------------\\
+    //
+    @FetchRequest(entity: TagViewed.entity(), sortDescriptors: []) var tagsViewed: FetchedResults<TagViewed>
+    @Environment(\.managedObjectContext) var moc
+    //
+    // Core Data ---------------------------------------------------------------------------------------------//
+    
     @State var textSearched: String = ""
     @State var isNavigationBarHidden: Bool = true
     @State var isSearching: Bool = false
@@ -108,11 +116,23 @@ struct MenuView: View {
             self.isNavigationBarHidden = true
             
             if self.viewModel.viewTagIds.isEmpty {
-                self.viewModel.viewTagIds = self.itemsId
-                UserDefaults.standard.set(self.viewModel.viewTagIds, forKey: "viewTags")
+                for tagId in self.itemsId {
+                    let tempTag = TagViewed(context: self.moc)
+                    tempTag.id = Int64(tagId)
+                    
+                    try? self.moc.save()
+                }
             }
             
-            self.viewModel.viewTagIds = UserDefaults.standard.array(forKey: "viewTags")  as? [Int] ?? [Int]()
+            var array: [Int] = []
+            
+            for tag in self.tagsViewed {
+                array.append(Int(tag.id))
+            }
+            
+            self.viewModel.viewTagIds = array
+            
+            print(self.tagsViewed)
             
             self.viewModel.recommender()
         }
@@ -122,7 +142,6 @@ struct MenuView: View {
         .onTapGesture {
             UIApplication.shared.endEditing()
         }
-        
         
     }
 }

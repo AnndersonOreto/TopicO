@@ -10,6 +10,8 @@ import SwiftUI
 
 struct DetailView: View {
     
+    @Environment(\.managedObjectContext) var moc
+    
     let tag: Tag
     
     var body: some View {
@@ -62,19 +64,17 @@ struct DetailView: View {
             }
         )
             .onAppear {
-                self.saveArrayInUserDefaults(self.tag.id)
+                self.saveTagToCoreData(self.tag.id)
             }
     }
     
     
-    func saveArrayInUserDefaults(_ tagId: Int) {
+    func saveTagToCoreData(_ tagId: Int) {
         
-        var tempArray = UserDefaults.standard.array(forKey: "viewTags")  as? [Int] ?? [Int]()
+        let tempTag = TagViewed(context: self.moc)
+        tempTag.id = Int64(tagId)
         
-        if !tempArray.contains(tagId) {
-            tempArray.append(tagId)
-            UserDefaults.standard.set(tempArray, forKey: "viewTags")
-        }
+        try? self.moc.save()
     }
     
     private func shareAction() {
