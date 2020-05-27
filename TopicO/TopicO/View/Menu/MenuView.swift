@@ -26,6 +26,11 @@ struct MenuView: View {
     @State var testDrag = CGSize.zero
     @State var testResize: Bool = false
     
+    //Resize Shape variables
+    static let defaultHeight: CGFloat = UIScreen.main.bounds.height*0.16
+    @State var heightDiff: CGFloat = 0.0
+    @State var currentHeight: CGFloat = MenuView.defaultHeight
+    
     var itemsId: [Int]
     
     let width = UIScreen.main.bounds.width
@@ -33,14 +38,54 @@ struct MenuView: View {
     
     var body: some View {
         
-        ZStack() {
-            
+        ZStack(alignment: .top) {
+            Rectangle()
+                .fill(Color(red: 124/255, green: 61/255, blue: 246/255))
+                .frame(width: width, height: 50)
             VStack(spacing: 0) {
                 
-                Image("img_shape")
+                ZStack{
+                    Image("img_shape")
                     .resizable()
-                    .frame(width: width, height: testResize ? height*0.16 : height*0.3)
-                
+                    .frame(
+                        minHeight: UIScreen.main.bounds.height*0.03,
+                        idealHeight: self.currentHeight + heightDiff,
+                        maxHeight: UIScreen.main.bounds.height*0.16
+                    )
+                    VStack {
+                        if !isSearching {
+                            if !testResize {
+                                Text("Ótimo, \nvamos começar!")
+//                                0.24
+                                .font(.custom("Jost", size: 35)).fontWeight(.medium)
+                                .foregroundColor(.white)
+                                .multilineTextAlignment(.center)
+                                .padding(.top)
+                            }
+                        }
+                        
+                        Spacer().frame(height: height*0.017)
+                        
+                        HStack {
+                            
+                            SearchBar(text: $textSearched, isSearching: $isSearching, resizeShape: $testResize)
+                            
+                            if isSearching {
+                                
+                                Button(action: {
+                                    withAnimation {
+                                        self.isSearching.toggle()
+                                    }
+                                    
+                                    UIApplication.shared.endEditing()
+                                }) {
+                                    Text("Cancel")
+                                        .foregroundColor(.white)
+                                }
+                            }
+                        }.padding(.horizontal)
+                    }
+                }
                 
                 if isSearching {
                     
@@ -71,52 +116,15 @@ struct MenuView: View {
                     }
                     
                     TagListView(tag_array: viewModel.tag_array)
-                        .disabled(!testResize)
+                        .disabled(testResize)
                         
                 }
-            }.edgesIgnoringSafeArea(.vertical)
-            
-            
-            VStack {
-                
-                if !isSearching {
-                    if !testResize {
-                        Text("Ótimo, \nvamos começar!")
-                        .font(.custom("Jost", size: 35)).fontWeight(.medium)
-                        .foregroundColor(.white)
-                        .multilineTextAlignment(.center)
-                        .padding(.top)
-                    }
                 }
-                
-                Spacer().frame(height: height*0.017)
-                
-                HStack {
-                    
-                    SearchBar(text: $textSearched, isSearching: $isSearching, resizeShape: $testResize)
-                    
-                    if isSearching {
-                        
-                        Button(action: {
-                            withAnimation {
-                                self.isSearching.toggle()
-                            }
-                            
-                            UIApplication.shared.endEditing()
-                        }) {
-                            Text("Cancel")
-                                .foregroundColor(.white)
-                        }
-                    }
-                }.padding(.horizontal)
-                
-                
-                Spacer()
-            }
             
         }
         .navigationBarTitle("", displayMode: .inline)
         .navigationBarHidden(isNavigationBarHidden)
+        .edgesIgnoringSafeArea(.vertical)
         .onAppear {
             
             self.isNavigationBarHidden = true
@@ -138,8 +146,6 @@ struct MenuView: View {
             
             self.viewModel.viewTagIds = array
             
-            print(self.tagsViewed)
-            
             self.viewModel.recommender()
         }
         .onDisappear {
@@ -148,21 +154,27 @@ struct MenuView: View {
         .onTapGesture {
             UIApplication.shared.endEditing()
         }
-        .gesture(DragGesture()
-            .onChanged { value in
-                self.testDrag = value.translation
-                
-                if self.testDrag.height < 0 {
-                    withAnimation{
-                        self.testResize = true
-                    }
-                } else {
-                   withAnimation{
-                        self.testResize = false
-                    }
-                }
-            }
-        )
+        .gesture(
+        DragGesture()
+            .onChanged({ gesture in
+                print("Changed")
+                let location = gesture.location
+                let startLocation = gesture.startLocation
+                let deltaY = location.y - startLocation.y
+                self.heightDiff = deltaY
+                print("deltaY: ", deltaY)
+                self.viewModel.delta = deltaY
+            })
+        .onEnded { gesture in
+            print("Ended")
+            let location = gesture.location
+            let startLocation = gesture.startLocation
+            let deltaY = location.y - startLocation.y
+            self.currentHeight = max(MenuView.defaultHeight, self.currentHeight + deltaY)
+            self.heightDiff = 0
+            print("Ended", deltaY)
+            print(String(describing: gesture))
+        })
     }
 }
 
