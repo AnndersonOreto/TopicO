@@ -36,6 +36,18 @@ struct MenuView: View {
     let width = UIScreen.main.bounds.width
     let height = UIScreen.main.bounds.height
     
+    var fontSizeHeight: CGFloat {
+        return (currentHeight + heightDiff) >= UIScreen.main.bounds.height*0.25 ?  35 : (currentHeight + heightDiff) * 0.12
+    }
+    
+    var isStartShapeHeight = true
+    
+    var hideText: Bool {
+        withAnimation{
+            return (self.currentHeight + self.heightDiff) * 0.12 > 20 ? true : false
+        }
+    }
+    
     var body: some View {
         
         ZStack(alignment: .top) {
@@ -54,17 +66,17 @@ struct MenuView: View {
                     )
                     VStack {
                         if !isSearching {
-                            if !testResize {
+                            if hideText{
                                 Text("Ótimo, \nvamos começar!")
 //                                0.24
-                                .font(.custom("Jost", size: 35)).fontWeight(.medium)
+                                    .font(.custom("Jost", size: fontSizeHeight)).fontWeight(.medium)
                                 .foregroundColor(.white)
                                 .multilineTextAlignment(.center)
                                 .padding(.top)
                             }
                         }
                         
-                        Spacer().frame(height: height*0.017)
+                        Spacer().frame(height: height*0.02)
                         
                         HStack {
                             
@@ -173,6 +185,8 @@ struct MenuView: View {
             self.currentHeight = max(MenuView.defaultHeight, self.currentHeight + deltaY)
             self.heightDiff = 0
             print("Ended", deltaY)
+            print((self.currentHeight + self.heightDiff) * 0.12)
+            print(UIScreen.main.bounds.height)
             print(String(describing: gesture))
         })
     }
