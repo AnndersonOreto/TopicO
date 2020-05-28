@@ -23,28 +23,21 @@ struct MenuView: View {
     @State var isNavigationBarHidden: Bool = true
     @State var isSearching: Bool = false
     
-    @State var testDrag = CGSize.zero
-    @State var testResize: Bool = false
-    
     //Resize Shape variables
-    static let defaultHeight: CGFloat = UIScreen.main.bounds.height*0.16
-    @State var heightDiff: CGFloat = 0.0
-    @State var currentHeight: CGFloat = MenuView.defaultHeight
+    static let maxHeight: CGFloat = UIScreen.main.bounds.height*0.33
+    static let minHeight: CGFloat = UIScreen.main.bounds.height*0.16
+    @State var currentHeight: CGFloat = MenuView.maxHeight
+    
+    @State var isScrollDisabled: Bool = true
     
     var itemsId: [Int]
     
     let width = UIScreen.main.bounds.width
     let height = UIScreen.main.bounds.height
     
-    var fontSizeHeight: CGFloat {
-        return (currentHeight + heightDiff) >= UIScreen.main.bounds.height*0.25 ?  35 : (currentHeight + heightDiff) * 0.12
-    }
-    
-    var isStartShapeHeight = true
-    
     var hideText: Bool {
         withAnimation{
-            return (self.currentHeight + self.heightDiff) * 0.12 > 20 ? true : false
+            return (self.currentHeight * 0.12) > 20 ? true : false
         }
     }
     
@@ -60,16 +53,13 @@ struct MenuView: View {
                     Image("img_shape")
                     .resizable()
                     .frame(
-                        minHeight: UIScreen.main.bounds.height*0.03,
-                        idealHeight: self.currentHeight + heightDiff,
-                        maxHeight: UIScreen.main.bounds.height*0.16
+                        height: self.currentHeight
                     )
                     VStack {
                         if !isSearching {
-                            if hideText{
+                            if hideText {
                                 Text("Ótimo, \nvamos começar!")
-//                                0.24
-                                    .font(.custom("Jost", size: fontSizeHeight)).fontWeight(.medium)
+                                .font(.custom("Jost", size: 35)).fontWeight(.medium)
                                 .foregroundColor(.white)
                                 .multilineTextAlignment(.center)
                                 .padding(.top)
@@ -80,7 +70,7 @@ struct MenuView: View {
                         
                         HStack {
                             
-                            SearchBar(text: $textSearched, isSearching: $isSearching, resizeShape: $testResize)
+                            SearchBar(text: $textSearched, isSearching: $isSearching, shapeHeight: $currentHeight)
                             
                             if isSearching {
                                 
@@ -116,7 +106,7 @@ struct MenuView: View {
                     
                     RecommendedView(viewModel: viewModel)
                     
-                    Spacer().frame(height: testResize ? height*0.02: height*0.04)
+                    Spacer().frame(height: height*0.04)
                     
                     HStack {
                         Text("Confira também")
@@ -128,10 +118,9 @@ struct MenuView: View {
                     }
                     
                     TagListView(tag_array: viewModel.tag_array)
-                        .disabled(testResize)
-                        
+                        .disabled(self.isScrollDisabled)
                 }
-                }
+            }
             
         }
         .navigationBarTitle("", displayMode: .inline)
@@ -169,25 +158,39 @@ struct MenuView: View {
         .gesture(
         DragGesture()
             .onChanged({ gesture in
-                print("Changed")
-                let location = gesture.location
-                let startLocation = gesture.startLocation
-                let deltaY = location.y - startLocation.y
-                self.heightDiff = deltaY
-                print("deltaY: ", deltaY)
-                self.viewModel.delta = deltaY
+                
+                let deltaY = gesture.translation.height
+                
+                if deltaY > 0 {
+                    withAnimation {
+                        self.currentHeight = min(MenuView.maxHeight, self.currentHeight + deltaY)
+                    }
+                } else {
+                    withAnimation {
+                        self.currentHeight = max(MenuView.minHeight, self.currentHeight + deltaY)
+                    }
+                }
+                
             })
         .onEnded { gesture in
-            print("Ended")
-            let location = gesture.location
-            let startLocation = gesture.startLocation
-            let deltaY = location.y - startLocation.y
-            self.currentHeight = max(MenuView.defaultHeight, self.currentHeight + deltaY)
-            self.heightDiff = 0
-            print("Ended", deltaY)
-            print((self.currentHeight + self.heightDiff) * 0.12)
-            print(UIScreen.main.bounds.height)
-            print(String(describing: gesture))
+            
+            let deltaY = gesture.translation.height
+            
+            if deltaY > 0 {
+                withAnimation {
+                    self.currentHeight = min(MenuView.maxHeight, self.currentHeight + deltaY)
+                }
+            } else {
+                withAnimation {
+                    self.currentHeight = max(MenuView.minHeight, self.currentHeight + deltaY)
+                }
+            }
+            
+            if self.currentHeight == MenuView.minHeight {
+                self.isScrollDisabled = false
+            } else {
+                self.isScrollDisabled = true
+            }
         })
     }
 }

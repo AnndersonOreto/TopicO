@@ -10,8 +10,6 @@ import SwiftUI
 
 class MenuViewModel: ObservableObject {
     
-    @Published var delta: CGFloat = 0.0
-    
     // All tags
     @Published var tag_array: [Tag] = []
     

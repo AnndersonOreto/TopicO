@@ -12,7 +12,7 @@ struct SearchBar: View {
     
     @Binding var text: String
     @Binding var isSearching: Bool
-    @Binding var resizeShape: Bool
+    @Binding var shapeHeight: CGFloat
     
     var body: some View {
         
@@ -26,7 +26,7 @@ struct SearchBar: View {
                 withAnimation {
                     if changed {
                         self.isSearching = true
-                        self.resizeShape = true
+                        self.shapeHeight = MenuView.minHeight
                     }
                 }
             })
@@ -44,27 +44,5 @@ struct SearchBar: View {
                 }
             }
         }.background(RoundedRectangle(cornerRadius: 100).fill(Color.white))
-    }
-}
-
-struct SearchFakeButton: View {
-    
-    @ObservedObject var viewModel: MenuViewModel
-    
-    var body: some View {
-        NavigationLink(destination: DetailView(tag: Tag())) {
-            HStack(alignment: .center) {
-                Image(systemName: "magnifyingglass")
-                .foregroundColor(.darkGraySearchBar)
-                .padding(.leading)
-                
-                Text("Buscar")
-                    .foregroundColor(Color.grayFontSearchBar)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding([.vertical, .trailing])
-                
-            }.background(RoundedRectangle(cornerRadius: 100).fill(Color.white))
-        }
-        
     }
 }
