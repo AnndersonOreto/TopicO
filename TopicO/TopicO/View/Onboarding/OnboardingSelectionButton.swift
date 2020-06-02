@@ -43,10 +43,10 @@ struct OnboardingSelectionButton: View {
                     Text(self.category.categoryName)
                         .font(.system(size: 18))
                         .fontWeight(.regular)
-                        .foregroundColor(Color(red: 23/255, green: 11/255, blue: 91/255))
+                        .foregroundColor(Color("DarkPurple"))
                         .padding(.bottom)
                 }
-            }
+            }.background(Color("CellBackground"))
         }
         .overlay(
             Group {

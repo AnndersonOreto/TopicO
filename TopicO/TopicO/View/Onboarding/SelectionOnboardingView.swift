@@ -18,7 +18,7 @@ struct SelectionOnboardingView: View {
         
         // Main structure
         ZStack {
-            
+            Color("Background")
             // Link to the main screen
             NavigationLink("", destination: MenuView(itemsId: Array(selectedRows)), isActive: $isActive)
             
@@ -32,15 +32,16 @@ struct SelectionOnboardingView: View {
                     Text("Primeiro, personalize seu feed")
                         .font(.custom("Jost", size: 35)).fontWeight(.medium)
                         .multilineTextAlignment(.center)
-                        .foregroundColor(Color(red: 23/255, green: 11/255, blue: 91/255))
-                        .padding(32)
+                        .foregroundColor(Color("DarkPurple"))
+                        .padding(16)
                     
                     // Description label
                     Text("Selecione o que tens interesse:")
                         .font(.custom("Jost", size: 20)).fontWeight(.regular)
                         .multilineTextAlignment(.center)
-                        .foregroundColor(.gray)
-                        .padding(16)
+                        .foregroundColor(Color("gray_purple"))
+                        .padding(8)
+                        .padding(.top, 16)
                     
                     // Stack used to place confirmation button over the scroll view
                     ZStack {
@@ -60,7 +61,6 @@ struct SelectionOnboardingView: View {
                                     }
                                 }
                             }.padding(.horizontal, 32)
-                                .padding(.top, 16)
                                 .padding(.bottom, 80)
                         }
                         
@@ -87,9 +87,12 @@ struct SelectionOnboardingView: View {
                             }.buttonStyle(OnboardingButtonStyle())
                         }.padding(.bottom)
                     }
-                }
+                }.padding(.top, 60)
+                .padding(.bottom, 30)
             }
-        }.navigationBarTitle("", displayMode: .inline)
+        }
+        .edgesIgnoringSafeArea(.all)
+        .navigationBarTitle("", displayMode: .inline)
         .navigationBarHidden(isNavigationBarHidden)
         .onAppear {
             self.isNavigationBarHidden = true

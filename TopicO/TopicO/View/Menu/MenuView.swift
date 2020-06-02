@@ -44,6 +44,7 @@ struct MenuView: View {
     var body: some View {
         
         ZStack(alignment: .top) {
+            Color("Background")
             Rectangle()
                 .fill(Color(red: 124/255, green: 61/255, blue: 246/255))
                 .frame(width: width, height: 50)
@@ -99,7 +100,7 @@ struct MenuView: View {
                         Text("Suas sugestões")
                             .font(.custom("Jost", size: 25)).fontWeight(.medium)
                             .padding(.leading)
-                            .foregroundColor(Color.purpleLargeText)
+                            .foregroundColor(Color("purpleLargeText"))
                         
                         Spacer()
                     }.padding(.top)
@@ -112,7 +113,7 @@ struct MenuView: View {
                         Text("Confira também")
                             .font(.custom("Jost", size: 25)).fontWeight(.medium)
                             .padding(.leading)
-                            .foregroundColor(Color.purpleLargeText)
+                            .foregroundColor(Color("purpleLargeText"))
                         
                         Spacer()
                     }

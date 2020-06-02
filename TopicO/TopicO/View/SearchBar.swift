@@ -43,6 +43,6 @@ struct SearchBar: View {
                         .foregroundColor(.darkGraySearchBar)
                 }
             }
-        }.background(RoundedRectangle(cornerRadius: 100).fill(Color.white))
+        }.background(RoundedRectangle(cornerRadius: 100).fill(Color("SearchBarColor")))
     }
 }

@@ -19,7 +19,7 @@ struct SearchResultsView: View {
                 Text("Resultado")
                     .font(.custom("Jost", size: 25)).fontWeight(.medium)
                     .padding(.leading)
-                    .foregroundColor(Color.purpleLargeText)
+                    .foregroundColor(Color("purpleLargeText"))
                 
                 Spacer()
             }.padding(.top)

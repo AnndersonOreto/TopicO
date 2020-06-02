@@ -20,7 +20,7 @@ struct RecommendedView: View {
                 if viewModel.recommender_tag_array.isEmpty {
                     Text("Suas sugestões acabaram 😅😅")
                     .font(.custom("Jost", size: 20)).fontWeight(.regular)
-                    .foregroundColor(Color.purpleNormalText)
+                    .foregroundColor(Color("purpleNormalText"))
                 } else{
                     ForEach(viewModel.recommender_tag_array) { tag in
                         NavigationLink(destination: DetailView(tag: tag)) {
@@ -49,10 +49,10 @@ struct TagCard: View {
             Text(text)
                 .font(.custom("Jost", size: 18)).fontWeight(.regular)
                 .padding([.bottom])
-                .foregroundColor(Color.purpleNormalText)
+                .foregroundColor(Color("purpleNormalText"))
                 .lineLimit(2)
         }.frame(width: self.width*0.42)
-        .background(Color.white)
+        .background(Color("CellBackground"))
         .cornerRadius(10)
         .shadow(color: .shadow, radius: 10, x: 2, y: 2)
     }

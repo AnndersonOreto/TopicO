@@ -34,9 +34,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window.makeKeyAndVisible()
             
             
-            if #available(iOS 13.0, *) {
-                window.overrideUserInterfaceStyle = .light
-            }
+//            if #available(iOS 13.0, *) {
+//                window.overrideUserInterfaceStyle = .light
+//            }
         }
     }
 

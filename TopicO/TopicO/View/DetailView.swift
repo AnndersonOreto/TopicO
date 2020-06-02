@@ -16,6 +16,7 @@ struct DetailView: View {
     
     var body: some View {
         ZStack{
+            
             VStack{
                 ZStack{
                     Image(tag.image)
@@ -35,8 +36,10 @@ struct DetailView: View {
                             .foregroundColor(Color.white)
                     }
                     Spacer()
-                }.padding(.horizontal, 26)
-                    .padding(.vertical, 10)
+                }
+                .padding(.horizontal, 26)
+                .padding(.vertical, 10)
+                
                 List {
                     ForEach(0..<tag.questions.count) { i in
                         HStack{
@@ -46,9 +49,9 @@ struct DetailView: View {
                                 .foregroundColor(Color(red: 134/255, green: 57/255, blue: 255/255))
                             Text(self.tag.questions[i])
                                 .font(.custom("Jost", size: 20)).fontWeight(.regular)
-                                .foregroundColor(Color(red: 23/255, green: 11/255, blue: 91/255))
+                                .foregroundColor(Color("DarkPurple"))
                         }.padding()
-                    }
+                    }.listRowBackground(Color("Background"))
                 }
                 .cornerRadius(25)
             }.padding(.top, UIScreen.main.bounds.width * 0.2)

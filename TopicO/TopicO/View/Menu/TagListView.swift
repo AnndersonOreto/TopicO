@@ -42,10 +42,10 @@ struct TagRow: View {
             Text(text)
                 .font(.custom("Jost", size: 18)).fontWeight(.regular)
                 .padding(.trailing)
-                .foregroundColor(Color.purpleNormalText)
+                .foregroundColor(Color("purpleNormalText"))
             Spacer()
         }.frame(height: self.width*0.24)
-        .background(Color.white)
+        .background(Color("CellBackground"))
         .cornerRadius(10)
         .shadow(color: .shadow, radius: 10, x: 2, y: 2)
     }
