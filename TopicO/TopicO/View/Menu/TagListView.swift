@@ -37,7 +37,8 @@ struct TagRow: View {
         HStack(alignment: .center) {
             Image(image)
                 .resizable()
-                .aspectRatio(contentMode: .fit)
+                .frame(width: width/2.8)
+//                .aspectRatio(contentMode: .fit)
                 .cornerRadius(10)
             Text(text)
                 .font(.custom("Jost", size: 18)).fontWeight(.regular)

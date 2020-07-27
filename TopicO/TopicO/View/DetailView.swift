@@ -39,7 +39,6 @@ struct DetailView: View {
                 }
                 .padding(.horizontal, 26)
                 .padding(.vertical, 10)
-                
                 List {
                     ForEach(0..<tag.questions.count) { i in
                         HStack{
@@ -52,7 +51,7 @@ struct DetailView: View {
                                 .foregroundColor(Color("DarkPurple"))
                         }.padding()
                     }.listRowBackground(Color("Background"))
-                }
+                }.background(Color("Background"))
                 .cornerRadius(25)
             }.padding(.top, UIScreen.main.bounds.width * 0.2)
             
