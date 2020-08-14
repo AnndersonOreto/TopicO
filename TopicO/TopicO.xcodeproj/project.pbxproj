@@ -29,7 +29,6 @@
 		AAE3F5AA2461D478006A0994 /* RecommendedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE3F5A92461D478006A0994 /* RecommendedViewModel.swift */; };
 		AAE3F5AC2461DD4C006A0994 /* TagListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE3F5AB2461DD4C006A0994 /* TagListView.swift */; };
 		AAF11E1A2464902400B3F801 /* tags.json in Resources */ = {isa = PBXBuildFile; fileRef = AAF11E192464902400B3F801 /* tags.json */; };
-		AAF11E1C246496D800B3F801 /* TagCategoryRecommender.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AAF11E1B246496D800B3F801 /* TagCategoryRecommender.mlmodel */; };
 		AB00CFEB2461F603009B662F /* OnboardingButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB00CFEA2461F603009B662F /* OnboardingButtonStyle.swift */; };
 		AB5C541E2461D121005FE7AE /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5C541D2461D121005FE7AE /* Tag.swift */; };
 		AB5C54202461D621005FE7AE /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5C541F2461D621005FE7AE /* DetailView.swift */; };
@@ -37,6 +36,7 @@
 		AB5C54252461F373005FE7AE /* OnboardingStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5C54242461F373005FE7AE /* OnboardingStart.swift */; };
 		ABD818F1246345B3001694BB /* TagUserRecommender.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = ABD818F0246345B3001694BB /* TagUserRecommender.mlmodel */; };
 		ABD818F524634688001694BB /* Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD818F424634688001694BB /* Parsing.swift */; };
+		ABE5C09824E709E400EAC938 /* TagCategoryRecommender.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = ABE5C09724E709E400EAC938 /* TagCategoryRecommender.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,7 +85,6 @@
 		AAE3F5A92461D478006A0994 /* RecommendedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecommendedViewModel.swift; path = TopicO/View/RecommendedViewModel.swift; sourceTree = SOURCE_ROOT; };
 		AAE3F5AB2461DD4C006A0994 /* TagListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagListView.swift; sourceTree = "<group>"; };
 		AAF11E192464902400B3F801 /* tags.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tags.json; sourceTree = "<group>"; };
-		AAF11E1B246496D800B3F801 /* TagCategoryRecommender.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = TagCategoryRecommender.mlmodel; sourceTree = "<group>"; };
 		AB00CFEA2461F603009B662F /* OnboardingButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingButtonStyle.swift; sourceTree = "<group>"; };
 		AB5C541D2461D121005FE7AE /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		AB5C541F2461D621005FE7AE /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
@@ -93,6 +92,7 @@
 		AB5C54242461F373005FE7AE /* OnboardingStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStart.swift; sourceTree = "<group>"; };
 		ABD818F0246345B3001694BB /* TagUserRecommender.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = TagUserRecommender.mlmodel; sourceTree = "<group>"; };
 		ABD818F424634688001694BB /* Parsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parsing.swift; sourceTree = "<group>"; };
+		ABE5C09724E709E400EAC938 /* TagCategoryRecommender.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = TagCategoryRecommender.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,7 +154,7 @@
 				269F9BA9245B444600FBB5F6 /* TopicO.xcdatamodeld */,
 				269F9BB6245B444800FBB5F6 /* Info.plist */,
 				ABD818F0246345B3001694BB /* TagUserRecommender.mlmodel */,
-				AAF11E1B246496D800B3F801 /* TagCategoryRecommender.mlmodel */,
+				ABE5C09724E709E400EAC938 /* TagCategoryRecommender.mlmodel */,
 				AAF11E192464902400B3F801 /* tags.json */,
 				269F9BB0245B444800FBB5F6 /* Preview Content */,
 			);
@@ -402,6 +402,7 @@
 				2648A9A52463226100DD2472 /* SelectionOnboardingView.swift in Sources */,
 				AB5C54252461F373005FE7AE /* OnboardingStart.swift in Sources */,
 				269F9BAB245B444600FBB5F6 /* TopicO.xcdatamodeld in Sources */,
+				ABE5C09824E709E400EAC938 /* TagCategoryRecommender.mlmodel in Sources */,
 				AAE3F5A62461D2EB006A0994 /* MenuView.swift in Sources */,
 				AB5C54202461D621005FE7AE /* DetailView.swift in Sources */,
 				ABD818F1246345B3001694BB /* TagUserRecommender.mlmodel in Sources */,
@@ -419,7 +420,6 @@
 				269F9BAD245B444600FBB5F6 /* ContentView.swift in Sources */,
 				2648A9A724632C7100DD2472 /* Categories.swift in Sources */,
 				2648A9A92463313C00DD2472 /* OnboardingSelectionButton.swift in Sources */,
-				AAF11E1C246496D800B3F801 /* TagCategoryRecommender.mlmodel in Sources */,
 				AB00CFEB2461F603009B662F /* OnboardingButtonStyle.swift in Sources */,
 				269F9BA8245B444600FBB5F6 /* SceneDelegate.swift in Sources */,
 			);
